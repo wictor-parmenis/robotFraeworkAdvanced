@@ -1,565 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.7.9 on win32)" generated="20210121 13:05:06.264" rpa="false">
-<suite id="s1" name="Waits" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\waits.robot">
-<test id="s1-t1" name="Example 01: test with timeout of test">
-<kw name="simulate wait of test">
+<robot generator="Robot 3.2.2 (Python 3.7.9 on win32)" generated="20210122 12:30:09.321" rpa="false">
+<suite id="s1" name="String" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\string.robot">
+<test id="s1-t1" name="example 02: treating strings">
+<kw name="replace values in text">
+<kw name="new get file">
+<assign>
+<var>${text}</var>
+</assign>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
 <arguments>
-<arg>0.5s</arg>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
 </arguments>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
+<assign>
+<var>${content_file}</var>
+</assign>
+<msg timestamp="20210122 12:30:09.384" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210122 12:30:09.384" level="INFO">${content_file} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
+</kw>
+<msg timestamp="20210122 12:30:09.384" level="INFO">${text} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
 <arguments>
-<arg>${time}</arg>
+<arg>string=${text}</arg>
+<arg>search_for=Minha linha</arg>
+<arg>replace_with=Conteúdo da minha linha</arg>
 </arguments>
-<msg timestamp="20210121 13:05:06.810" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20210121 13:05:06.305" endtime="20210121 13:05:06.810"></status>
+<assign>
+<var>${new_text}</var>
+</assign>
+<msg timestamp="20210122 12:30:09.384" level="INFO">${new_text} = Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
 </kw>
-<status status="PASS" starttime="20210121 13:05:06.305" endtime="20210121 13:05:06.810"></status>
-</kw>
-<kw name="teardown of my test" type="teardown">
-<kw name="Run Keyword If Timeout Occurred" library="BuiltIn">
-<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>log</arg>
-<arg>this test was so slow</arg>
+<arg>The old text was like that: ${text}${SPACE} The new text is that: ${new_text}\n</arg>
 </arguments>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.810"></status>
+<msg timestamp="20210122 12:30:09.384" level="INFO">The old text was like that: Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+  The new text is that: Conteúdo da minha linha 00!
+Conteúdo da minha linha 01!
+Conteúdo da minha linha 02!
+Conteúdo da minha linha 03!
+Conteúdo da minha linha 04!
+Conteúdo da minha linha 05!
+
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
 </kw>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.810"></status>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>./my_files/meu_novo_arquivo.txt</arg>
+<arg>${new_text}</arg>
+</arguments>
+<msg timestamp="20210122 12:30:09.399" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\meu_novo_arquivo.txt"&gt;C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\meu_novo_arquivo.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.399"></status>
 </kw>
-<timeout value="2 seconds"></timeout>
-<status status="PASS" starttime="20210121 13:05:06.304" endtime="20210121 13:05:06.810" critical="yes"></status>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.399"></status>
+</kw>
+<kw name="i want change all">
+<kw name="new get file">
+<assign>
+<var>${text}</var>
+</assign>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>./my_files/arquivo_texto_linhas.txt</arg>
+</arguments>
+<assign>
+<var>${content_file}</var>
+</assign>
+<msg timestamp="20210122 12:30:09.399" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20210122 12:30:09.399" level="INFO">${content_file} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+</kw>
+<msg timestamp="20210122 12:30:09.399" level="INFO">${text} = Minha linha 00!
+Minha linha 01!
+Minha linha 02!
+Minha linha 03!
+Minha linha 04!
+Minha linha 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<doc>Converts string to lower case.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<assign>
+<var>${text_lower}</var>
+</assign>
+<msg timestamp="20210122 12:30:09.399" level="INFO">${text_lower} = minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<doc>Converts string to upper case.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<assign>
+<var>${text_upper}</var>
+</assign>
+<msg timestamp="20210122 12:30:09.399" level="INFO">${text_upper} = MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Text in uppercase: ${text_upper}${SPACE} Text in lowercase: ${text_lower}\n</arg>
+</arguments>
+<msg timestamp="20210122 12:30:09.399" level="INFO">Text in uppercase: MINHA LINHA 00!
+MINHA LINHA 01!
+MINHA LINHA 02!
+MINHA LINHA 03!
+MINHA LINHA 04!
+MINHA LINHA 05!
+  Text in lowercase: minha linha 00!
+minha linha 01!
+minha linha 02!
+minha linha 03!
+minha linha 04!
+minha linha 05!
+
+</msg>
+<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+</kw>
+<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+</kw>
+<tags>
+<tag>02</tag>
+</tags>
+<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.399" critical="yes"></status>
 </test>
-<test id="s1-t2" name="Example 02: test of wait">
-<kw name="wait a keyword has sucess">
-<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<arguments>
-<arg>60x</arg>
-<arg>1s</arg>
-<arg>This keyword only pass if we are in 15 second</arg>
-</arguments>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:06.810" level="INFO">${actual_hour} = 2021-01-21 13:05:06.810</msg>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.810"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:06.810" level="INFO">${actual_hour} = 2021-01-21 13:05:06.810000</msg>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.810"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:06.810" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 6</msg>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.810"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:06.810" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.826"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.826"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:06.810" endtime="20210121 13:05:06.826"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:07.840" level="INFO">${actual_hour} = 2021-01-21 13:05:07.840</msg>
-<status status="PASS" starttime="20210121 13:05:07.839" endtime="20210121 13:05:07.840"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:07.842" level="INFO">${actual_hour} = 2021-01-21 13:05:07.840000</msg>
-<status status="PASS" starttime="20210121 13:05:07.841" endtime="20210121 13:05:07.842"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:07.843" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 7</msg>
-<status status="PASS" starttime="20210121 13:05:07.842" endtime="20210121 13:05:07.843"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:07.844" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:07.844" endtime="20210121 13:05:07.844"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:07.843" endtime="20210121 13:05:07.845"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:07.838" endtime="20210121 13:05:07.845"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:08.857" level="INFO">${actual_hour} = 2021-01-21 13:05:08.857</msg>
-<status status="PASS" starttime="20210121 13:05:08.856" endtime="20210121 13:05:08.857"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:08.858" level="INFO">${actual_hour} = 2021-01-21 13:05:08.857000</msg>
-<status status="PASS" starttime="20210121 13:05:08.857" endtime="20210121 13:05:08.858"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:08.859" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 8</msg>
-<status status="PASS" starttime="20210121 13:05:08.858" endtime="20210121 13:05:08.859"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:08.861" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:08.860" endtime="20210121 13:05:08.861"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:08.860" endtime="20210121 13:05:08.861"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:08.855" endtime="20210121 13:05:08.861"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:09.874" level="INFO">${actual_hour} = 2021-01-21 13:05:09.874</msg>
-<status status="PASS" starttime="20210121 13:05:09.873" endtime="20210121 13:05:09.874"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:09.876" level="INFO">${actual_hour} = 2021-01-21 13:05:09.874000</msg>
-<status status="PASS" starttime="20210121 13:05:09.874" endtime="20210121 13:05:09.876"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:09.877" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 9</msg>
-<status status="PASS" starttime="20210121 13:05:09.876" endtime="20210121 13:05:09.877"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:09.879" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:09.878" endtime="20210121 13:05:09.879"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:09.877" endtime="20210121 13:05:09.879"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:09.872" endtime="20210121 13:05:09.879"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:10.884" level="INFO">${actual_hour} = 2021-01-21 13:05:10.884</msg>
-<status status="PASS" starttime="20210121 13:05:10.882" endtime="20210121 13:05:10.885"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:10.887" level="INFO">${actual_hour} = 2021-01-21 13:05:10.884000</msg>
-<status status="PASS" starttime="20210121 13:05:10.885" endtime="20210121 13:05:10.887"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:10.889" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 10</msg>
-<status status="PASS" starttime="20210121 13:05:10.887" endtime="20210121 13:05:10.890"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:10.892" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:10.891" endtime="20210121 13:05:10.892"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:10.890" endtime="20210121 13:05:10.892"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:10.881" endtime="20210121 13:05:10.893"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:11.901" level="INFO">${actual_hour} = 2021-01-21 13:05:11.900</msg>
-<status status="PASS" starttime="20210121 13:05:11.900" endtime="20210121 13:05:11.901"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:11.902" level="INFO">${actual_hour} = 2021-01-21 13:05:11.900000</msg>
-<status status="PASS" starttime="20210121 13:05:11.901" endtime="20210121 13:05:11.903"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:11.904" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 11</msg>
-<status status="PASS" starttime="20210121 13:05:11.903" endtime="20210121 13:05:11.904"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:11.906" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:11.905" endtime="20210121 13:05:11.906"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:11.905" endtime="20210121 13:05:11.906"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:11.899" endtime="20210121 13:05:11.907"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:12.914" level="INFO">${actual_hour} = 2021-01-21 13:05:12.914</msg>
-<status status="PASS" starttime="20210121 13:05:12.913" endtime="20210121 13:05:12.914"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:12.915" level="INFO">${actual_hour} = 2021-01-21 13:05:12.914000</msg>
-<status status="PASS" starttime="20210121 13:05:12.915" endtime="20210121 13:05:12.915"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:12.917" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 12</msg>
-<status status="PASS" starttime="20210121 13:05:12.916" endtime="20210121 13:05:12.917"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:12.919" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:12.918" endtime="20210121 13:05:12.919"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:12.917" endtime="20210121 13:05:12.919"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:12.913" endtime="20210121 13:05:12.919"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:13.933" level="INFO">${actual_hour} = 2021-01-21 13:05:13.933</msg>
-<status status="PASS" starttime="20210121 13:05:13.933" endtime="20210121 13:05:13.933"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:13.934" level="INFO">${actual_hour} = 2021-01-21 13:05:13.933000</msg>
-<status status="PASS" starttime="20210121 13:05:13.934" endtime="20210121 13:05:13.934"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:13.935" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 13</msg>
-<status status="PASS" starttime="20210121 13:05:13.934" endtime="20210121 13:05:13.936"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:13.937" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:13.936" endtime="20210121 13:05:13.937"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:13.936" endtime="20210121 13:05:13.937"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:13.932" endtime="20210121 13:05:13.937"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:14.945" level="INFO">${actual_hour} = 2021-01-21 13:05:14.944</msg>
-<status status="PASS" starttime="20210121 13:05:14.944" endtime="20210121 13:05:14.945"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:14.946" level="INFO">${actual_hour} = 2021-01-21 13:05:14.944000</msg>
-<status status="PASS" starttime="20210121 13:05:14.945" endtime="20210121 13:05:14.946"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:14.947" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 14</msg>
-<status status="PASS" starttime="20210121 13:05:14.946" endtime="20210121 13:05:14.947"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<arguments>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<msg timestamp="20210121 13:05:14.949" level="FAIL">Fail in operation</msg>
-<status status="FAIL" starttime="20210121 13:05:14.948" endtime="20210121 13:05:14.949"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:14.947" endtime="20210121 13:05:14.949"></status>
-</kw>
-<status status="FAIL" starttime="20210121 13:05:14.943" endtime="20210121 13:05:14.949"></status>
-</kw>
-<kw name="This keyword only pass if we are in 15 second">
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:15.958" level="INFO">${actual_hour} = 2021-01-21 13:05:15.958</msg>
-<status status="PASS" starttime="20210121 13:05:15.958" endtime="20210121 13:05:15.959"></status>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<doc>Converts between supported `date formats`.</doc>
-<arguments>
-<arg>${actual_hour}</arg>
-<arg>datetime</arg>
-</arguments>
-<assign>
-<var>${actual_hour}</var>
-</assign>
-<msg timestamp="20210121 13:05:15.960" level="INFO">${actual_hour} = 2021-01-21 13:05:15.958000</msg>
-<status status="PASS" starttime="20210121 13:05:15.959" endtime="20210121 13:05:15.960"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Hour actual: ${actual_hour.hour}\nMinute actual: ${actual_hour.minute}\nSecond actual: ${actual_hour.second}</arg>
-</arguments>
-<msg timestamp="20210121 13:05:15.961" level="INFO">Hour actual: 13
-Minute actual: 5
-Second actual: 15</msg>
-<status status="PASS" starttime="20210121 13:05:15.960" endtime="20210121 13:05:15.961"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>"${actual_hour.second}"!="15"</arg>
-<arg>Fail</arg>
-<arg>msg=Fail in operation</arg>
-</arguments>
-<status status="PASS" starttime="20210121 13:05:15.961" endtime="20210121 13:05:15.962"></status>
-</kw>
-<status status="PASS" starttime="20210121 13:05:15.957" endtime="20210121 13:05:15.962"></status>
-</kw>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:15.962"></status>
-</kw>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:15.963"></status>
-</kw>
-<kw name="teardown of my test" type="teardown">
-<kw name="Run Keyword If Timeout Occurred" library="BuiltIn">
-<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
-<arguments>
-<arg>log</arg>
-<arg>this test was so slow</arg>
-</arguments>
-<status status="PASS" starttime="20210121 13:05:15.964" endtime="20210121 13:05:15.964"></status>
-</kw>
-<status status="PASS" starttime="20210121 13:05:15.963" endtime="20210121 13:05:15.964"></status>
-</kw>
-<timeout value="1 minute"></timeout>
-<status status="PASS" starttime="20210121 13:05:06.810" endtime="20210121 13:05:15.964" critical="yes"></status>
-</test>
-<status status="PASS" starttime="20210121 13:05:06.267" endtime="20210121 13:05:15.966"></status>
+<doc>http://robotframework.org/robotframework/latest/libraries/String.html</doc>
+<status status="PASS" starttime="20210122 12:30:09.321" endtime="20210122 12:30:09.399"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0">Critical Tests</stat>
-<stat pass="2" fail="0">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0">02</stat>
 </tag>
 <suite>
-<stat pass="2" fail="0" id="s1" name="Waits">Waits</stat>
+<stat pass="1" fail="0" id="s1" name="String">String</stat>
 </suite>
 </statistics>
 <errors>
