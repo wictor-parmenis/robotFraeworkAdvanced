@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.7.9 on win32)" generated="20210124 14:37:52.834" rpa="false">
+<suite id="s1" name="Diff" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\tasks\diff.robot">
+<test id="s1-t1" name="test: files diference">
+<kw name="files diference">
+<kw name="Diff Files" library="DiffLibrary">
+<doc>Diff two text files</doc>
+<arguments>
+<arg>C:\\Users\\WICTOR\\PycharmProjects\\RPA\\robot-framework-adv\\tasks/hoje.txt</arg>
+<arg>C:/Users/WICTOR/PycharmProjects/RPA/robot-framework-adv/tasks/hojeCopy.txt</arg>
+<arg>fail=True</arg>
+</arguments>
+<msg timestamp="20210124 14:37:52.943" level="INFO">file1: C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\tasks/hoje.txt</msg>
+<msg timestamp="20210124 14:37:52.943" level="INFO">file2: C:/Users/WICTOR/PycharmProjects/RPA/robot-framework-adv/tasks/hojeCopy.txt</msg>
+<msg timestamp="20210124 14:37:52.943" level="INFO">c:\users\wictor\pycharmprojects\rpa\robot-framework-adv\venv\lib\site-packages\DiffLibrary\bin\diff\diff.exe --strip-trailing-cr  "C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\tasks/hoje.txt" "C:/Users/WICTOR/PycharmProjects/RPA/robot-framework-adv/tasks/hojeCopy.txt"</msg>
+<msg timestamp="20210124 14:37:53.084" level="INFO">1c1
+&lt; hoje
+---
+&gt; amanhã</msg>
+<msg timestamp="20210124 14:37:53.100" level="FAIL">differences found between C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\tasks/hoje.txt and C:/Users/WICTOR/PycharmProjects/RPA/robot-framework-adv/tasks/hojeCopy.txt</msg>
+<status status="FAIL" starttime="20210124 14:37:52.943" endtime="20210124 14:37:53.100"></status>
+</kw>
+<status status="FAIL" starttime="20210124 14:37:52.943" endtime="20210124 14:37:53.100"></status>
+</kw>
+<status status="FAIL" starttime="20210124 14:37:52.943" endtime="20210124 14:37:53.100" critical="yes">differences found between C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\tasks/hoje.txt and C:/Users/WICTOR/PycharmProjects/RPA/robot-framework-adv/tasks/hojeCopy.txt</status>
+</test>
+<doc>https://marketsquare.github.io/robotframework-difflibrary/</doc>
+<status status="FAIL" starttime="20210124 14:37:52.834" endtime="20210124 14:37:53.100"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Diff">Diff</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

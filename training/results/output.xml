@@ -1,186 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.7.9 on win32)" generated="20210122 12:30:09.321" rpa="false">
-<suite id="s1" name="String" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\string.robot">
-<test id="s1-t1" name="example 02: treating strings">
-<kw name="replace values in text">
-<kw name="new get file">
-<assign>
-<var>${text}</var>
-</assign>
-<kw name="Get File" library="OperatingSystem">
-<doc>Returns the contents of a specified file.</doc>
+<robot generator="Robot 3.2.2 (Python 3.7.9 on win32)" generated="20210123 11:42:06.753" rpa="false">
+<suite id="s1" name="Process" source="C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\process.robot">
+<test id="s1-t1" name="example 03: execute much command in prompt">
+<kw name="execute much command in prompt">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
 <arguments>
-<arg>./my_files/arquivo_texto_linhas.txt</arg>
+<arg>mkdir imunekids_test</arg>
+<arg>cwd=C:\\Users\\WICTOR\\PycharmProjects\\RPA\\robot-framework-adv\\training</arg>
+<arg>shell=True</arg>
 </arguments>
-<assign>
-<var>${content_file}</var>
-</assign>
-<msg timestamp="20210122 12:30:09.384" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
-<msg timestamp="20210122 12:30:09.384" level="INFO">${content_file} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
+<msg timestamp="20210123 11:42:06.811" level="INFO">Starting process:
+mkdir imunekids_test</msg>
+<msg timestamp="20210123 11:42:06.827" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20210123 11:42:06.858" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20210123 11:42:06.811" endtime="20210123 11:42:06.858"></status>
 </kw>
-<msg timestamp="20210122 12:30:09.384" level="INFO">${text} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
-</kw>
-<kw name="Replace String" library="String">
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<arguments>
-<arg>string=${text}</arg>
-<arg>search_for=Minha linha</arg>
-<arg>replace_with=Conteúdo da minha linha</arg>
-</arguments>
-<assign>
-<var>${new_text}</var>
-</assign>
-<msg timestamp="20210122 12:30:09.384" level="INFO">${new_text} = Conteúdo da minha linha 00!
-Conteúdo da minha linha 01!
-Conteúdo da minha linha 02!
-Conteúdo da minha linha 03!
-Conteúdo da minha linha 04!
-Conteúdo da minha linha 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>The old text was like that: ${text}${SPACE} The new text is that: ${new_text}\n</arg>
-</arguments>
-<msg timestamp="20210122 12:30:09.384" level="INFO">The old text was like that: Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-  The new text is that: Conteúdo da minha linha 00!
-Conteúdo da minha linha 01!
-Conteúdo da minha linha 02!
-Conteúdo da minha linha 03!
-Conteúdo da minha linha 04!
-Conteúdo da minha linha 05!
-
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.384"></status>
-</kw>
-<kw name="Create File" library="OperatingSystem">
-<doc>Creates a file with the given content and encoding.</doc>
-<arguments>
-<arg>./my_files/meu_novo_arquivo.txt</arg>
-<arg>${new_text}</arg>
-</arguments>
-<msg timestamp="20210122 12:30:09.399" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\meu_novo_arquivo.txt"&gt;C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\meu_novo_arquivo.txt&lt;/a&gt;'.</msg>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.399"></status>
-</kw>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.399"></status>
-</kw>
-<kw name="i want change all">
-<kw name="new get file">
-<assign>
-<var>${text}</var>
-</assign>
-<kw name="Get File" library="OperatingSystem">
-<doc>Returns the contents of a specified file.</doc>
-<arguments>
-<arg>./my_files/arquivo_texto_linhas.txt</arg>
-</arguments>
-<assign>
-<var>${content_file}</var>
-</assign>
-<msg timestamp="20210122 12:30:09.399" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt"&gt;C:\Users\WICTOR\PycharmProjects\RPA\robot-framework-adv\training\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
-<msg timestamp="20210122 12:30:09.399" level="INFO">${content_file} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
-</kw>
-<msg timestamp="20210122 12:30:09.399" level="INFO">${text} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
-</kw>
-<kw name="Convert To Lower Case" library="String">
-<doc>Converts string to lower case.</doc>
-<arguments>
-<arg>${text}</arg>
-</arguments>
-<assign>
-<var>${text_lower}</var>
-</assign>
-<msg timestamp="20210122 12:30:09.399" level="INFO">${text_lower} = minha linha 00!
-minha linha 01!
-minha linha 02!
-minha linha 03!
-minha linha 04!
-minha linha 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
-</kw>
-<kw name="Convert To Upper Case" library="String">
-<doc>Converts string to upper case.</doc>
-<arguments>
-<arg>${text}</arg>
-</arguments>
-<assign>
-<var>${text_upper}</var>
-</assign>
-<msg timestamp="20210122 12:30:09.399" level="INFO">${text_upper} = MINHA LINHA 00!
-MINHA LINHA 01!
-MINHA LINHA 02!
-MINHA LINHA 03!
-MINHA LINHA 04!
-MINHA LINHA 05!
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Text in uppercase: ${text_upper}${SPACE} Text in lowercase: ${text_lower}\n</arg>
-</arguments>
-<msg timestamp="20210122 12:30:09.399" level="INFO">Text in uppercase: MINHA LINHA 00!
-MINHA LINHA 01!
-MINHA LINHA 02!
-MINHA LINHA 03!
-MINHA LINHA 04!
-MINHA LINHA 05!
-  Text in lowercase: minha linha 00!
-minha linha 01!
-minha linha 02!
-minha linha 03!
-minha linha 04!
-minha linha 05!
-
-</msg>
-<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
-</kw>
-<status status="PASS" starttime="20210122 12:30:09.399" endtime="20210122 12:30:09.399"></status>
+<status status="PASS" starttime="20210123 11:42:06.811" endtime="20210123 11:42:06.858"></status>
 </kw>
 <tags>
-<tag>02</tag>
+<tag>03</tag>
 </tags>
-<status status="PASS" starttime="20210122 12:30:09.384" endtime="20210122 12:30:09.399" critical="yes"></status>
+<status status="PASS" starttime="20210123 11:42:06.811" endtime="20210123 11:42:06.858" critical="yes"></status>
 </test>
-<doc>http://robotframework.org/robotframework/latest/libraries/String.html</doc>
-<status status="PASS" starttime="20210122 12:30:09.321" endtime="20210122 12:30:09.399"></status>
+<doc>http://robotframework.org/robotframework/latest/libraries/Process.html</doc>
+<status status="PASS" starttime="20210123 11:42:06.757" endtime="20210123 11:42:06.858"></status>
 </suite>
 <statistics>
 <total>
@@ -188,10 +32,10 @@ minha linha 05!
 <stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">02</stat>
+<stat pass="1" fail="0">03</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="String">String</stat>
+<stat pass="1" fail="0" id="s1" name="Process">Process</stat>
 </suite>
 </statistics>
 <errors>
