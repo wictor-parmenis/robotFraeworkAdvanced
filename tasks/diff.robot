@@ -11,4 +11,4 @@ test: files diference
 
 *** Keywords ***
 files diference
-    diff files  ${CURDIR}/hoje.txt  /hojeCopy.txt
+    diff files  ${CURDIR}/hojeCopy.txt  ${CURDIR}/hojeCopy.txt
